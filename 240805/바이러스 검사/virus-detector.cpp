@@ -22,10 +22,12 @@ int main() {
     cin >> mento >> mentee;
 
     loop(i, 1, n){
-        int t = arr[i] / mento;
-        arr[i] -= t * mento;
-        if(!(arr[i] % mentee)) ans += t + arr[i] / mentee;
-        else ans += t + arr[i] / mentee + 1;
+        arr[i] -= mento;
+        if(arr[i] < 0 || !arr[i]){
+            ans++; continue;
+        }
+        if(!(arr[i] % mentee)) ans += 1 + arr[i] / mentee;
+        else ans += arr[i] / mentee + 2;
     }
 
     cout << ans << endl;
